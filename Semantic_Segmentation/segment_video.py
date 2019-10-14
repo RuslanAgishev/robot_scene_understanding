@@ -87,6 +87,7 @@ while True:
 	start = time.time()
 	output = net.forward()
 	end = time.time()
+	# print(end-start)
 
         print(end-start)
 
