@@ -87,6 +87,7 @@ while True:
 	start = time.time()
 	output = net.forward()
 	end = time.time()
+	# print(end-start)
 
 	# infer the total number of classes along with the spatial
 	# dimensions of the mask image via the shape of the output array
