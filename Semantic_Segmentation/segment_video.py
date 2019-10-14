@@ -19,7 +19,7 @@ ap.add_argument("-v", "--video", required=True,
 	help="path to input video file")
 ap.add_argument("-o", "--output", required=True,
 	help="path to output video file")
-ap.add_argument("-s", "--show", type=int, default=1,
+ap.add_argument("-s", "--show", type=int, default=0,
 	help="whether or not to display frame to screen")
 ap.add_argument("-l", "--colors", type=str,
 	help="path to .txt file containing colors for labels")
@@ -88,6 +88,8 @@ while True:
 	output = net.forward()
 	end = time.time()
 
+        print(end-start)
+
 	# infer the total number of classes along with the spatial
 	# dimensions of the mask image via the shape of the output array
 	(numClasses, height, width) = output.shape[1:4]
@@ -126,7 +128,7 @@ while True:
 				elap * total))
 
 	# write the output frame to disk
-	writer.write(output)
+	# writer.write(output)
 
 	# check to see if we should display the output frame to our screen
 	if args["show"] > 0:
