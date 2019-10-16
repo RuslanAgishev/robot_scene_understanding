@@ -1,0 +1,36 @@
+Collecting albumentations
+Collecting opencv-python>=4.1.1 (from albumentations)
+  Using cached https://files.pythonhosted.org/packages/5e/7e/bd5425f4dacb73367fddc71388a47c1ea570839197c2bcad86478e565186/opencv_python-4.1.1.26-cp36-cp36m-manylinux1_x86_64.whl
+Collecting scipy (from albumentations)
+  Using cached https://files.pythonhosted.org/packages/29/50/a552a5aff252ae915f522e44642bb49a7b7b31677f9580cfd11bcc869976/scipy-1.3.1-cp36-cp36m-manylinux1_x86_64.whl
+Collecting PyYAML (from albumentations)
+Collecting numpy>=1.11.1 (from albumentations)
+  Using cached https://files.pythonhosted.org/packages/e5/e6/c3fdc53aed9fa19d6ff3abf97dfad768ae3afce1b7431f7500000816bda5/numpy-1.17.2-cp36-cp36m-manylinux1_x86_64.whl
+Collecting imgaug<0.2.7,>=0.2.5 (from albumentations)
+Collecting six (from imgaug<0.2.7,>=0.2.5->albumentations)
+  Using cached https://files.pythonhosted.org/packages/73/fb/00a976f728d0d1fecfe898238ce23f502a721c0ac0ecfedb80e0d88c64e9/six-1.12.0-py2.py3-none-any.whl
+Collecting scikit-image>=0.11.0 (from imgaug<0.2.7,>=0.2.5->albumentations)
+  Using cached https://files.pythonhosted.org/packages/05/4c/79516d5c800d9ef00ce59c344e0f7d3c7d7b8374b0341811a3b531d02c72/scikit_image-0.16.1-cp36-cp36m-manylinux1_x86_64.whl
+Collecting pillow>=4.3.0 (from scikit-image>=0.11.0->imgaug<0.2.7,>=0.2.5->albumentations)
+  Using cached https://files.pythonhosted.org/packages/19/66/6113477dc3206ccb1e192cffd626f2840ead02375a6cebe2436ad4c19f61/Pillow-6.2.0-cp36-cp36m-manylinux1_x86_64.whl
+Collecting imageio>=2.3.0 (from scikit-image>=0.11.0->imgaug<0.2.7,>=0.2.5->albumentations)
+  Using cached https://files.pythonhosted.org/packages/1a/de/f7f985018f462ceeffada7f6e609919fbcc934acd9301929cba14bc2c24a/imageio-2.6.1-py3-none-any.whl
+Collecting matplotlib!=3.0.0,>=2.0.0 (from scikit-image>=0.11.0->imgaug<0.2.7,>=0.2.5->albumentations)
+  Using cached https://files.pythonhosted.org/packages/57/4f/dd381ecf6c6ab9bcdaa8ea912e866dedc6e696756156d8ecc087e20817e2/matplotlib-3.1.1-cp36-cp36m-manylinux1_x86_64.whl
+Collecting PyWavelets>=0.4.0 (from scikit-image>=0.11.0->imgaug<0.2.7,>=0.2.5->albumentations)
+  Using cached https://files.pythonhosted.org/packages/4e/cd/528dba0b474b08f6f9a3a5e1b4bb23d8e33ed5d9f0e321cc967c2607df05/PyWavelets-1.0.3-cp36-cp36m-manylinux1_x86_64.whl
+Collecting networkx>=2.0 (from scikit-image>=0.11.0->imgaug<0.2.7,>=0.2.5->albumentations)
+Collecting pyparsing!=2.0.4,!=2.1.2,!=2.1.6,>=2.0.1 (from matplotlib!=3.0.0,>=2.0.0->scikit-image>=0.11.0->imgaug<0.2.7,>=0.2.5->albumentations)
+  Using cached https://files.pythonhosted.org/packages/11/fa/0160cd525c62d7abd076a070ff02b2b94de589f1a9789774f17d7c54058e/pyparsing-2.4.2-py2.py3-none-any.whl
+Collecting python-dateutil>=2.1 (from matplotlib!=3.0.0,>=2.0.0->scikit-image>=0.11.0->imgaug<0.2.7,>=0.2.5->albumentations)
+  Using cached https://files.pythonhosted.org/packages/41/17/c62faccbfbd163c7f57f3844689e3a78bae1f403648a6afb1d0866d87fbb/python_dateutil-2.8.0-py2.py3-none-any.whl
+Collecting cycler>=0.10 (from matplotlib!=3.0.0,>=2.0.0->scikit-image>=0.11.0->imgaug<0.2.7,>=0.2.5->albumentations)
+  Using cached https://files.pythonhosted.org/packages/f7/d2/e07d3ebb2bd7af696440ce7e754c59dd546ffe1bbe732c8ab68b9c834e61/cycler-0.10.0-py2.py3-none-any.whl
+Collecting kiwisolver>=1.0.1 (from matplotlib!=3.0.0,>=2.0.0->scikit-image>=0.11.0->imgaug<0.2.7,>=0.2.5->albumentations)
+  Using cached https://files.pythonhosted.org/packages/f8/a1/5742b56282449b1c0968197f63eae486eca2c35dcd334bab75ad524e0de1/kiwisolver-1.1.0-cp36-cp36m-manylinux1_x86_64.whl
+Collecting decorator>=4.3.0 (from networkx>=2.0->scikit-image>=0.11.0->imgaug<0.2.7,>=0.2.5->albumentations)
+  Using cached https://files.pythonhosted.org/packages/5f/88/0075e461560a1e750a0dcbf77f1d9de775028c37a19a346a6c565a257399/decorator-4.4.0-py2.py3-none-any.whl
+Collecting setuptools (from kiwisolver>=1.0.1->matplotlib!=3.0.0,>=2.0.0->scikit-image>=0.11.0->imgaug<0.2.7,>=0.2.5->albumentations)
+  Using cached https://files.pythonhosted.org/packages/6a/9a/50fadfd53ec909e4399b67c74cc7f4e883488035cfcdb90b685758fa8b34/setuptools-41.4.0-py2.py3-none-any.whl
+Installing collected packages: numpy, opencv-python, scipy, PyYAML, six, pillow, imageio, pyparsing, python-dateutil, cycler, setuptools, kiwisolver, matplotlib, PyWavelets, decorator, networkx, scikit-image, imgaug, albumentations
+Successfully installed PyWavelets-1.0.3 PyYAML-5.1.2 albumentations-0.4.0 cycler-0.10.0 decorator-4.4.0 imageio-2.6.1 imgaug-0.2.6 kiwisolver-1.1.0 matplotlib-3.1.1 networkx-2.4rc1 numpy-1.17.2 opencv-python-4.1.1.26 pillow-6.2.0 pyparsing-2.4.2 python-dateutil-2.8.0 scikit-image-0.16.1 scipy-1.3.1 setuptools-41.4.0 six-1.12.0
