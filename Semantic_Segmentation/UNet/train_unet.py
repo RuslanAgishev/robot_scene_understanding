@@ -31,10 +31,14 @@ import cv2
 import keras
 import numpy as np
 import matplotlib.pyplot as plt
+<<<<<<< HEAD
 import tensorflow as tf
 config = tf.ConfigProto()
 config.gpu_options.per_process_gpu_memory_fraction = 0.9
 keras.backend.tensorflow_backend.set_session(tf.Session(config=config))
+=======
+
+>>>>>>> d2926e55d70f6f67efe5b22fe1af5c2807eb8c5b
 
 # In[3]:
 
@@ -318,12 +322,20 @@ import segmentation_models as sm
 
 
 BACKBONE = 'efficientnetb3'
+<<<<<<< HEAD
 BATCH_SIZE = 8
+=======
+BATCH_SIZE = 32
+>>>>>>> d2926e55d70f6f67efe5b22fe1af5c2807eb8c5b
 CLASSES = ['building', 'road', 'pavement', 
            'tree', 'signsymbol', 'car', 
            'pedestrian', 'bicyclist']
 LR = 0.0001
+<<<<<<< HEAD
 EPOCHS = 200
+=======
+EPOCHS = 40
+>>>>>>> d2926e55d70f6f67efe5b22fe1af5c2807eb8c5b
 
 preprocess_input = sm.get_preprocessing(BACKBONE)
 
@@ -348,7 +360,11 @@ optim = keras.optimizers.Adam(LR)
 # Segmentation models losses can be combined together by '+' and scaled by integer or float factor
 # set class weights for dice_loss (car: 1.; pedestrian: 2.; background: 0.5;)
 # dice_loss = sm.losses.DiceLoss(class_weights=np.array([0.5, 1, 1, 2, 1, 1, 2, 1, 2, 2, 2, 0.5])) 
+<<<<<<< HEAD
 dice_loss = sm.losses.DiceLoss(class_weights=np.array([0.8, 2, 2, 0.8, 2, 2, 2, 2, 0.5])) 
+=======
+dice_loss = sm.losses.DiceLoss(class_weights=np.array([0.8, 2, 1, 0.8, 2, 2, 2, 2, 0.5])) 
+>>>>>>> d2926e55d70f6f67efe5b22fe1af5c2807eb8c5b
 focal_loss = sm.losses.BinaryFocalLoss() if n_classes == 1 else sm.losses.CategoricalFocalLoss()
 total_loss = dice_loss + (1 * focal_loss)
 

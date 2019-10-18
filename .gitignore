@@ -1,11 +1,14 @@
 <<<<<<< HEAD
-Semantic_Segmentation/UNet/best_model.h5
+<<<<<<< HEAD
 =======
 data/videos/moscow_output.avi
 data/videos/moscow_streets.mp4
 >>>>>>> d2926e55d70f6f67efe5b22fe1af5c2807eb8c5b
 Semantic_Segmentation/UNet/data/videos/moscow_output.avi
 Semantic_Segmentation/UNet/data/videos/moscow_streets.mp4
-trained_models/
 Semantic_Segmentation/UNet/data/videos/
 Semantic_Segmentation/UNet/.ipynb_checkpoints/
+=======
+data/videos/moscow_output.avi
+data/videos/moscow_streets.mp4
+>>>>>>> d2926e55d70f6f67efe5b22fe1af5c2807eb8c5b
