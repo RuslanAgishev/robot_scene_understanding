@@ -12,3 +12,4 @@ Semantic_Segmentation/UNet/.ipynb_checkpoints/
 data/videos/moscow_output.avi
 data/videos/moscow_streets.mp4
 >>>>>>> d2926e55d70f6f67efe5b22fe1af5c2807eb8c5b
+best_model.h5
