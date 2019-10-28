@@ -1,12 +1,16 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
+# Large files
 *.avi
 *.mp4
 *.h5
 *.pth
 *.zip
-*.ipynb_checkpoints
-Semantic_Segmentation/UNet/.ipynb_checkpoints
 Semantic_Segmentation/UNet/keras/data
+# YOLO pre-trained model
 Objects_Detection/YOLO/yolo-coco/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+.idea/
+*ipynb
