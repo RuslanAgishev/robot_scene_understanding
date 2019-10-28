@@ -19,3 +19,5 @@ or:
 ```bash
 python yolo_video.py --input videos/car_chase_01.mp4 --output output/car_chase_01_output.avi --yolo yolo-coco
 ```
+
+For more information take a look at the [PyImageSearch tutorial](https://www.pyimagesearch.com/2018/11/12/yolo-object-detection-with-opencv/).
