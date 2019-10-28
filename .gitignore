@@ -5,5 +5,6 @@
 *.mp4
 *.h5
 *.pth
+*.zip
 Semantic_Segmentation/UNet/.ipynb_checkpoints
 Semantic_Segmentation/UNet/keras/data
