@@ -1,5 +1,5 @@
 ## Deep learning pipeline based on [fast.ai](https://docs.fast.ai/) library
-The UNet model is trained on [CamVid](http://mi.eng.cam.ac.uk/research/projects/VideoRec/CamVid/)
+The UNet (ResNet34) model is trained on [CamVid](http://mi.eng.cam.ac.uk/research/projects/VideoRec/CamVid/)
 as well as [Berkeley DeepDrive](https://bdd-data.berkeley.edu/) datasets.
 
 ### Requirements
