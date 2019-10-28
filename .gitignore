@@ -6,5 +6,7 @@
 *.h5
 *.pth
 *.zip
+*.ipynb_checkpoints
 Semantic_Segmentation/UNet/.ipynb_checkpoints
 Semantic_Segmentation/UNet/keras/data
+Objects_Detection/YOLO/yolo-coco/
