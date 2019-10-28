@@ -1,7 +1,9 @@
 ## CNN-based object detection based on [YOLO](https://arxiv.org/abs/1506.02640)-algorithm
 ### Usage:
 - Download pretrained model architecture and weighs:
-
+```bash
+./get_model.sh
+```
 - Try YOLO-object detection on images:
 ```bash
 ./image_inference.sh
