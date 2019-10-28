@@ -1,6 +1,9 @@
 ## CNN-based object detection based on [YOLO](https://arxiv.org/abs/1506.02640)-algorithm
+
+<img src="https://github.com/RuslanAgishev/robot_scene_understanding/blob/master/Objects_Detection/YOLO/output/example_04_output.png" width="800"/>
+
 ### Usage:
-- Download pretrained model architecture and weighs:
+- Download pretrained model architecture and weights:
 ```bash
 ./get_model.sh
 ```
