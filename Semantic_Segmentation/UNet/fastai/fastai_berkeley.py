@@ -42,6 +42,8 @@ fnames = get_image_files(path_img, recurse = True)
 
 lbl_names = get_image_files(path_lbl, recurse = True)
 
+img_f = fnames[10]
+img = open_image(img_f)
 
 # ### Now we need to create a function that maps from the path of an image to the path of its segmentation.
 
@@ -158,9 +160,9 @@ lr_find(learn)
 # https://towardsdatascience.com/fastai-image-classification-32d626da20
 # We need to select a point on the graph with the fastest decrease in the loss.
 
-lr=3e-3 # pick a learning rate
+lr=1e-4 # pick a learning rate
 
-learn.fit_one_cycle(10, slice(lr), pct_start=0.9)
+learn.fit_one_cycle(5, slice(lr), pct_start=0.9)
 
 # learn.fit_one_cycle(10, slice(lr),
 #                     callbacks=[SaveModelCallback(learn, name='best_model', every='epoch', monitor='accuracy')])#, pct_start=0.9) # train model
@@ -174,8 +176,8 @@ learn.fit_one_cycle(10, slice(lr), pct_start=0.9)
 import os
 current_path = os.getcwd()
 # learn.save(current_path + '/trained_models/berkeley-stage-1') # save model
-learn.save('berkeley-full-size')
-learn.show_results(rows=3, figsize=(20,10))
+learn.save('berkeley-full-size-1')
+#learn.show_results(rows=3, figsize=(20,10))
 
 
 # ### Perform fine-tuning of all layers
@@ -184,15 +186,15 @@ learn.show_results(rows=3, figsize=(20,10))
 
 
 # learn.load(current_path + '/trained_models/berkeley-stage-1');
-learn.load('berkeley-full-size');
+learn.load('berkeley-full-size-1');
 
 learn.unfreeze() # unfreeze all layers
 
 lrs = slice(lr/400,lr/4)
 
-learn.fit_one_cycle(12, lrs)
+learn.fit_one_cycle(4, lrs)
 
-learn.save('berkeley-full-size')
+learn.save('berkeley-full-size-2')
 
 # ### Video inference
 
@@ -221,9 +223,13 @@ except:
     print("[INFO] could not determine # of frames in video")
     total = -1
 
-np.random.seed(42)
-COLORS = np.random.randint(0, 255, size=(len(segmentation_classes) - 1, 3), dtype="uint8")
-COLORS = np.vstack([COLORS, [0, 0, 0]]).astype("uint8")
+COLORS = open("unet-colors.txt").read().strip().split("\n")
+COLORS = [np.array(c.split(",")).astype("int") for c in COLORS]
+COLORS = np.array(COLORS, dtype="uint8")
+
+#np.random.seed(4)
+#COLORS = np.random.randint(0, 255, size=(len(segmentation_classes) - 1, 3), dtype="uint8")
+#COLORS = np.vstack([COLORS, [0, 0, 0]]).astype("uint8")
 
 while(1):
 # for i in tqdm( range(30) ):
