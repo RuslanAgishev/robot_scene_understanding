@@ -9,7 +9,7 @@ Convolutional Neuron Networks (CNNs) architectures considered here:
 - [Enet](https://arxiv.org/abs/1606.02147) based on [PyImageSearch](https://www.pyimagesearch.com/2018/09/03/semantic-segmentation-with-opencv-and-deep-learning/) tutorial
 - [Unet](https://arxiv.org/abs/1505.04597) based on [keras implementation](https://github.com/qubvel/segmentation_models) and [fastai-pytorch tutorial](https://course.fast.ai/videos/?lesson=3)
 
-### Results
+### Results (NVIDIA GeForce RTX 2080)
 | Image Size | Dataset     | Backbone             | FPS  | Accuracy |IoU   | F1-score | Pipeline
 |:----------:|:-----------:|:--------------------:|:----:|:--------:|:----:|:--------:|:--------:|
 | (360, 480) | CamVid      | Unet-ResNet34        | 23.8 | 89.9     |      |          | [jupyter](https://github.com/RuslanAgishev/robot_scene_understanding/blob/master/Semantic_Segmentation/UNet/fastai/fastai_camvid.ipynb)
