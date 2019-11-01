@@ -2,7 +2,7 @@
 *.avi
 *.mp4
 *.h5
-*.pth
+#*.pth
 *.zip
 Semantic_Segmentation/UNet/keras/data
 # YOLO pre-trained model
