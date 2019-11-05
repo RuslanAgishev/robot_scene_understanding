@@ -14,5 +14,9 @@ __pycache__/
 *$py.class
 .idea/
 
-# jupyter-notebook checkpoints
+#jupyter-notebook checkpoints
 .ipynb_checkpoints
+
+# Dataset folders
+gtsrb-german-traffic-sign
+
