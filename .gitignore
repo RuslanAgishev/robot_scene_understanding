@@ -15,3 +15,5 @@ __pycache__/
 .idea/
 
 .ipynb_checkpoints
+# Dataset folders
+gtsrb-german-traffic-sign
