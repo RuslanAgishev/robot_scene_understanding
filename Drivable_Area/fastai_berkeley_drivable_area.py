@@ -26,7 +26,6 @@ lbl_names = get_image_files(path_lbl, recurse = True)
 
 img_f = fnames[100]
 
-
 # Now we need to create a function that maps from the path of an image to the path of its segmentation.
 get_y_fn = lambda x: path_lbl/x.parts[-2]/f'{x.stem}_drivable_id.png'
 
@@ -90,7 +89,7 @@ def acc(input, target):
 iou = partial(dice, iou=True)
 f_score = partial(fbeta, thresh=0.2)
 # metrics=[acc, iou, f_score]
-metrics=[acc]
+metrics=[]
 
 wd=1e-6 # weight decay
 
@@ -98,13 +97,12 @@ wd=1e-6 # weight decay
 # To create a U-NET in FastAI the unet_learner class can be used. We not only going to pass it our data but we will also specify an encoder-network (Resnet34 in our case), our accuracy function as well as a weight-decay
 #learn = unet_learner(data, models.resnet34, metrics=metrics, wd=wd).to_fp16()
 learn = unet_learner(data, models.resnet34, wd=wd).to_fp16()
-
 # To read about picking a learning rate, go to:
 # https://towardsdatascience.com/fastai-image-classification-32d626da20
 # We need to select a point on the graph with the fastest decrease in the loss.
 lr=5e-5 # pick a learning rate
 
-learn.fit_one_cycle(5, slice(lr),
+learn.fit_one_cycle(20, slice(lr),
                     callbacks=[SaveModelCallback(learn, name='best_model',
                     							 every='epoch',
                     							 monitor='accuracy')])# train model
