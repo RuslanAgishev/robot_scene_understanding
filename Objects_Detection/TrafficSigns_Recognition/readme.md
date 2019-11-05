@@ -7,6 +7,8 @@ The project is built based on PyImageSearch [tutorial](https://www.pyimagesearch
 A pre-trained keras model is located [here](https://github.com/RuslanAgishev/robot_scene_understanding/tree/master/Objects_Detection/TrafficSigns_Recognition/output/trafficsignnet.model).
 
 ### Training
+Note, that you need to downloadthe GTSRB dataset and put it in the current folder
+for the next commands to work.
 In order to train the model execute:
 ```bash
 python3 train.py --dataset gtsrb-german-traffic-sign \
