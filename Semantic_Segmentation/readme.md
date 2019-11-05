@@ -16,3 +16,5 @@ Convolutional Neuron Networks (CNNs) architectures considered here:
 | (384, 640) | CamVid      | Unet-EfficientNetB3  | 28.3 |          | 65.2 (8 classes) | 74.3     | [jupyter](https://github.com/RuslanAgishev/robot_scene_understanding/blob/master/Semantic_Segmentation/UNet/keras/multiclass_segmentation_camvid.ipynb)
 | (512, 1024)| CityScapes  | Unet-EfficientNetB3  | 14.9 |          | 63.8 (8 classes) | 73.4     | [jupyter](https://github.com/RuslanAgishev/robot_scene_understanding/blob/master/Semantic_Segmentation/UNet/keras/multiclass_segmentation_cityscapes.ipynb)
 | (720, 1280)| Berkeley-DD | Unet-ResNet34        | 4.3  | 87.7     | 45.3 (18 classes) |          | [jupyter](https://github.com/RuslanAgishev/robot_scene_understanding/blob/master/Semantic_Segmentation/UNet/fastai/fastai_berkeley.ipynb)
+
+Semantic segmentation video results are available on [Google-drive](https://drive.google.com/open?id=1rH6Zj5QBcv2eQGxh8kpIKQEz7AhU1bHu).
