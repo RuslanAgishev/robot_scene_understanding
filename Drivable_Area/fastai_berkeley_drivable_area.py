@@ -96,8 +96,8 @@ wd=1e-6 # weight decay
 
 
 # To create a U-NET in FastAI the unet_learner class can be used. We not only going to pass it our data but we will also specify an encoder-network (Resnet34 in our case), our accuracy function as well as a weight-decay
-learn = unet_learner(data, models.resnet34, metrics=metrics, wd=wd).to_fp16()
-
+#learn = unet_learner(data, models.resnet34, metrics=metrics, wd=wd).to_fp16()
+learn = unet_learner(data, models.resnet34, wd=wd).to_fp16()
 
 # To read about picking a learning rate, go to:
 # https://towardsdatascience.com/fastai-image-classification-32d626da20
