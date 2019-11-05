@@ -11,4 +11,4 @@ Convolutional Neuron Networks (CNNs) architectures considered here:
 ### Results (NVIDIA GeForce RTX 2080)
 | Image Size | Dataset                     | Backbone             | FPS  | Accuracy |IoU   | Model    |Pipeline |
 |:----------:|:---------------------------:|:--------------------:|:----:|:--------:|:----:|:--------:|:-------:|
-| (360, 640) | Berkeley-DD (Drivable Area) | Unet-ResNet34        | 25.9 |          | 0.92 |[unet-drivable](https://drive.google.com/open?id=1fCEsEvzFMLxTxtw4EIdiQWonyXW8bOlf) |[jupyter](https://github.com/RuslanAgishev/robot_scene_understanding/blob/master/Drivable_Area/fastai_berkeley.ipynb)
+| (360, 640) | Berkeley-DD (Drivable Area) | Unet-ResNet34        | 25.9 |          | 91.7 |[unet-drivable](https://drive.google.com/open?id=1fCEsEvzFMLxTxtw4EIdiQWonyXW8bOlf) |[jupyter](https://github.com/RuslanAgishev/robot_scene_understanding/blob/master/Drivable_Area/fastai_berkeley.ipynb)
