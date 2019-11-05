@@ -12,7 +12,9 @@ Convolutional Neuron Networks (CNNs) architectures considered here:
 ### Results (NVIDIA GeForce RTX 2080)
 | Image Size | Dataset     | Backbone             | FPS  | Accuracy |IoU   | F1-score | Pipeline
 |:----------:|:-----------:|:--------------------:|:----:|:--------:|:----:|:--------:|:--------:|
-| (360, 480) | CamVid      | Unet-ResNet34        | 23.8 | 89.9     |      |          | [jupyter](https://github.com/RuslanAgishev/robot_scene_understanding/blob/master/Semantic_Segmentation/UNet/fastai/fastai_camvid.ipynb)
-| (384, 640) | CamVid      | Unet-EfficientNetB3  | 28.3 |          | 65.2 | 74.3     | [jupyter](https://github.com/RuslanAgishev/robot_scene_understanding/blob/master/Semantic_Segmentation/UNet/keras/multiclass_segmentation_camvid.ipynb)
-| (512, 1024)| CityScapes  | Unet-EfficientNetB3  | 14.9 |          | 63.8 | 73.4     | [jupyter](https://github.com/RuslanAgishev/robot_scene_understanding/blob/master/Semantic_Segmentation/UNet/keras/multiclass_segmentation_cityscapes.ipynb)
-| (720, 1280)| Berkeley-DD | Unet-ResNet34        | 4.3  | 87.7     |      |          | [jupyter](https://github.com/RuslanAgishev/robot_scene_understanding/blob/master/Semantic_Segmentation/UNet/fastai/fastai_berkeley.ipynb)
+| (360, 480) | CamVid      | Unet-ResNet34        | 23.8 | 89.9     | 41.8 (32 classes) |          | [jupyter](https://github.com/RuslanAgishev/robot_scene_understanding/blob/master/Semantic_Segmentation/UNet/fastai/fastai_camvid.ipynb)
+| (384, 640) | CamVid      | Unet-EfficientNetB3  | 28.3 |          | 65.2 (8 classes) | 74.3     | [jupyter](https://github.com/RuslanAgishev/robot_scene_understanding/blob/master/Semantic_Segmentation/UNet/keras/multiclass_segmentation_camvid.ipynb)
+| (512, 1024)| CityScapes  | Unet-EfficientNetB3  | 14.9 |          | 63.8 (8 classes) | 73.4     | [jupyter](https://github.com/RuslanAgishev/robot_scene_understanding/blob/master/Semantic_Segmentation/UNet/keras/multiclass_segmentation_cityscapes.ipynb)
+| (720, 1280)| Berkeley-DD | Unet-ResNet34        | 4.3  | 87.7     | 45.3 (18 classes) |          | [jupyter](https://github.com/RuslanAgishev/robot_scene_understanding/blob/master/Semantic_Segmentation/UNet/fastai/fastai_berkeley.ipynb)
+
+Semantic segmentation video results are available on [Google-drive](https://drive.google.com/open?id=1rH6Zj5QBcv2eQGxh8kpIKQEz7AhU1bHu).
