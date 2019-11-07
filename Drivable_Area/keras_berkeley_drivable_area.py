@@ -6,7 +6,7 @@
 # - segmenation-models==1.0.*
 # - albumentations==0.3.0
 
-# In[25]:
+# In[1]:
 
 
 # Install required libs
@@ -16,7 +16,7 @@
 # !pip3 install -U --pre segmentation-models --user
 
 
-# In[26]:
+# In[2]:
 
 
 import os
@@ -32,12 +32,12 @@ import tensorflow as tf
 import keras
 config = tf.ConfigProto()
 config.gpu_options.per_process_gpu_memory_fraction = 0.9
-tf.keras.backend.set_session(tf.Session(config=config))
+keras.backend.set_session(tf.Session(config=config))
 
 
 # # Loading dataset
 
-# In[27]:
+# In[3]:
 
 
 path_data = Path('/home/ruslan/Desktop/Berkeley_DeepDrive/bdd100k/')
@@ -53,7 +53,7 @@ y_valid_dir = path_lbl/'val'
 
 # # Dataloader and utility functions 
 
-# In[28]:
+# In[4]:
 
 
 # helper function for data visualization
@@ -190,11 +190,22 @@ class Dataloder(keras.utils.Sequence):
             self.indexes = np.random.permutation(self.indexes)   
 
 
-# In[29]:
+# In[5]:
 
 
+# Lets look at data we have
+dataset_raw = Dataset(x_train_dir, y_train_dir, classes=['background', 'current', 'neighbour'])
 
-# In[30]:
+image, mask = dataset_raw[4] # get some sample
+visualize(
+    image=image, 
+    background=mask[..., 0].squeeze(),
+    current=mask[..., 1].squeeze(),
+    neighbour=mask[..., 2].squeeze(),
+)
+
+
+# In[6]:
 
 
 src_size = np.array(image.shape[:2])
@@ -222,12 +233,12 @@ src_size = np.array(image.shape[:2])
 # For detailed explanation of image transformations you can look at [kaggle salt segmentation exmaple](https://github.com/albu/albumentations/blob/master/notebooks/example_kaggle_salt.ipynb) provided by [**Albumentations**](https://github.com/albu/albumentations/) authors.
 # 
 
-# In[31]:
+# In[7]:
 
 
 import albumentations as A
 
-size = (640, 640) #src_size//2
+size = (352, 640) #src_size//2
 
 def round_clip_0_1(x, **kwargs):
     return x.round().clip(0, 1)
@@ -235,13 +246,14 @@ def round_clip_0_1(x, **kwargs):
 # define heavy augmentations
 def get_training_augmentation():
     train_transform = [
-
+        A.Resize(size[0], size[1], interpolation=1, always_apply=True), #cv2.INTER_LINEAR
+        
         A.HorizontalFlip(p=0.5),
 
         A.ShiftScaleRotate(scale_limit=0.5, rotate_limit=0, shift_limit=0.1, p=1, border_mode=0),
 
         A.PadIfNeeded(min_height=size[0], min_width=size[1], always_apply=True, border_mode=0),
-        A.RandomCrop(height=size[0], width=size[1], always_apply=True),
+#         A.RandomCrop(height=size[0], width=size[1], always_apply=True),
 
         A.IAAAdditiveGaussianNoise(p=0.2),
         A.IAAPerspective(p=0.5),
@@ -279,7 +291,7 @@ def get_training_augmentation():
 def get_validation_augmentation():
     """Add paddings to make image shape divisible by 32"""
     test_transform = [
-        A.PadIfNeeded(src_size[0], src_size[1])
+        A.Resize(size[0], size[1], interpolation=1, always_apply=True) #cv2.INTER_LINEAR
     ]
     return A.Compose(test_transform)
 
@@ -300,12 +312,11 @@ def get_preprocessing(preprocessing_fn):
     return A.Compose(_transform)
 
 
-# In[44]:
 
 
 # # Segmentation model training
 
-# In[45]:
+# In[10]:
 
 
 import segmentation_models as sm
@@ -314,19 +325,19 @@ import segmentation_models as sm
 # or you could switch to other framework using `sm.set_framework('tf.keras')`
 
 
-# In[46]:
+# In[11]:
 
 
 BACKBONE = 'efficientnetb3'
 BATCH_SIZE = 2
 CLASSES = ['background', 'current', 'neighbour']
 LR = 1e-4
-EPOCHS = 20
+EPOCHS = 5
 
 preprocess_input = sm.get_preprocessing(BACKBONE)
 
 
-# In[47]:
+# In[12]:
 
 
 # define network parameters
@@ -337,7 +348,7 @@ activation = 'sigmoid' if n_classes == 1 else 'softmax'
 model = sm.Unet(BACKBONE, classes=n_classes, activation=activation)
 
 
-# In[48]:
+# In[13]:
 
 
 # define optomizer
@@ -358,7 +369,7 @@ metrics = [sm.metrics.IOUScore(threshold=0.5), sm.metrics.FScore(threshold=0.5)]
 model.compile(optim, total_loss, metrics)
 
 
-# In[52]:
+# In[14]:
 
 
 # Dataset for train images
@@ -383,17 +394,20 @@ train_dataloader = Dataloder(train_dataset, batch_size=BATCH_SIZE, shuffle=True)
 valid_dataloader = Dataloder(valid_dataset, batch_size=1, shuffle=False)
 
 # check shapes for errors
-assert train_dataloader[0][0].shape == (BATCH_SIZE, 640, 640, 3)
-assert train_dataloader[0][1].shape == (BATCH_SIZE, 640, 640, n_classes)
+assert train_dataloader[0][0].shape == (BATCH_SIZE, size[0], size[1], 3)
+assert train_dataloader[0][1].shape == (BATCH_SIZE, size[0], size[1], n_classes)
 
 # define callbacks for learning rate scheduling and best checkpoints saving
-MODEL_NAME = 'unet-resnet34-drivable-berkeley-{}'.format(int(time.time()))
+MODEL_NAME = 'unet-resnet34-drivable-berkeley'
 
 callbacks = [
-    tf.keras.callbacks.ModelCheckpoint('./'+MODEL_NAME+'.h5', save_weights_only=True, save_best_only=True, mode='min'),
-    tf.keras.callbacks.ReduceLROnPlateau(),
-    tf.keras.callbacks.TensorBoard(log_dir='logs/{}'.format(MODEL_NAME))
+    keras.callbacks.ModelCheckpoint('./'+MODEL_NAME+'.h5', save_weights_only=True, save_best_only=True, mode='min'),
+    keras.callbacks.ReduceLROnPlateau(),
+    keras.callbacks.TensorBoard(log_dir='logs/{}'.format(MODEL_NAME+str(int(time.time()))))
 ]
+
+
+# In[ ]:
 
 
 # train model
@@ -408,6 +422,9 @@ history = model.fit_generator(
 
 
 # # Model Evaluation
+
+# In[17]:
+
 
 # Plot training & validation iou_score values
 plt.figure(figsize=(30, 5))
@@ -427,5 +444,5 @@ plt.title('Model loss')
 plt.ylabel('Loss')
 plt.xlabel('Epoch')
 plt.legend(['Train', 'Test'], loc='upper left')
-plt.savefig('results.png')
+plt.savefig('training_results.png')
 
