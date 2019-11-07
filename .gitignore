@@ -13,6 +13,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 .idea/
+logs
 
 #jupyter-notebook checkpoints
 .ipynb_checkpoints
