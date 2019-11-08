@@ -31,7 +31,7 @@ from pathlib import Path
 import tensorflow as tf
 import keras
 config = tf.ConfigProto()
-config.gpu_options.per_process_gpu_memory_fraction = 0.9
+config.gpu_options.per_process_gpu_memory_fraction = 0.5
 keras.backend.set_session(tf.Session(config=config))
 
 
@@ -103,10 +103,11 @@ class Dataset:
             classes=None, 
             augmentation=None, 
             preprocessing=None,
+            num_images=-1,
     ):
         self.get_y_fn = lambda x: f'{Path(x).stem}_drivable_id.png'
-
-        self.ids = os.listdir(images_dir)
+        
+        self.ids = os.listdir(images_dir)[:num_images]
         self.mask_ids = [self.get_y_fn(iD) for iD in self.ids]
         self.images_fps = [os.path.join(images_dir, image_id) for image_id in self.ids]
         self.masks_fps = [os.path.join(masks_dir, image_id) for image_id in self.mask_ids]
@@ -371,7 +372,7 @@ train_dataset = Dataset(
     y_train_dir, 
     classes=CLASSES, 
     augmentation=get_training_augmentation(),
-    preprocessing=get_preprocessing(preprocess_input),
+    preprocessing=get_preprocessing(preprocess_input)
 )
 
 # Dataset for validation images
@@ -381,6 +382,7 @@ valid_dataset = Dataset(
     classes=CLASSES, 
     augmentation=get_validation_augmentation(),
     preprocessing=get_preprocessing(preprocess_input),
+    num_images = 1000
 )
 
 train_dataloader = Dataloder(train_dataset, batch_size=BATCH_SIZE, shuffle=True)
@@ -401,7 +403,8 @@ callbacks = [
 
 
 # In[ ]:
-
+print('[INFO] number of training images', len(train_dataset))
+print('[INFO] number of validation images', len(valid_dataset))
 
 # train model
 history = model.fit_generator(
