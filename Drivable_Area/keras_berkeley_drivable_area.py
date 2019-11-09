@@ -31,7 +31,11 @@ from pathlib import Path
 import tensorflow as tf
 import keras
 config = tf.ConfigProto()
+<<<<<<< HEAD:Drivable_Area/keras_berkeley_drivable_area.py
+config.gpu_options.per_process_gpu_memory_fraction = 0.9
+=======
 config.gpu_options.per_process_gpu_memory_fraction = 0.5
+>>>>>>> c2c4f1a817795c9a1addddb61a58c2abbcecb041:Drivable_Area/keras.py
 keras.backend.set_session(tf.Session(config=config))
 
 
@@ -192,13 +196,31 @@ class Dataloder(keras.utils.Sequence):
 
 
 # In[5]:
+<<<<<<< HEAD:Drivable_Area/keras_berkeley_drivable_area.py
+=======
 
+>>>>>>> c2c4f1a817795c9a1addddb61a58c2abbcecb041:Drivable_Area/keras.py
 
 # Lets look at data we have
 dataset_raw = Dataset(x_train_dir, y_train_dir, classes=['background', 'current', 'neighbour'])
 
+<<<<<<< HEAD:Drivable_Area/keras_berkeley_drivable_area.py
+# Lets look at data we have
+dataset_raw = Dataset(x_train_dir, y_train_dir, classes=['background', 'current', 'neighbour'])
+
+image, mask = dataset_raw[4] # get some sample
+visualize(
+    image=image, 
+    background=mask[..., 0].squeeze(),
+    current=mask[..., 1].squeeze(),
+    neighbour=mask[..., 2].squeeze(),
+)
+
+
+=======
 image, mask = dataset_raw[4] # get some sample
 
+>>>>>>> c2c4f1a817795c9a1addddb61a58c2abbcecb041:Drivable_Area/keras.py
 # In[6]:
 
 
@@ -403,8 +425,12 @@ callbacks = [
 
 
 # In[ ]:
+<<<<<<< HEAD:Drivable_Area/keras_berkeley_drivable_area.py
+
+=======
 print('[INFO] number of training images', len(train_dataset))
 print('[INFO] number of validation images', len(valid_dataset))
+>>>>>>> c2c4f1a817795c9a1addddb61a58c2abbcecb041:Drivable_Area/keras.py
 
 # train model
 history = model.fit_generator(

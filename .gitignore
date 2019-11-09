@@ -4,6 +4,7 @@
 *.h5
 *.pth
 *.zip
+*.pb
 Semantic_Segmentation/UNet/keras/data
 # YOLO pre-trained model
 Objects_Detection/YOLO/yolo-coco/
@@ -21,3 +22,5 @@ logs
 # Dataset folders
 gtsrb-german-traffic-sign
 
+# Deeplab pretrained models
+deeplab*
