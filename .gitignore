@@ -22,3 +22,5 @@ logs
 # Dataset folders
 gtsrb-german-traffic-sign
 
+# Deeplab pretrained models
+deeplab*
