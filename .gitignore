@@ -4,6 +4,7 @@
 *.h5
 *.pth
 *.zip
+*.pb
 Semantic_Segmentation/UNet/keras/data
 # YOLO pre-trained model
 Objects_Detection/YOLO/yolo-coco/
@@ -13,6 +14,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 .idea/
+logs
 
 #jupyter-notebook checkpoints
 .ipynb_checkpoints
