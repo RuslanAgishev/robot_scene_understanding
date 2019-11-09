@@ -12,6 +12,6 @@ Convolutional Neuron Networks (CNNs) architectures considered here:
 | Image Size | Dataset                     | Backbone             | FPS  | F1-score |IoU   | Model    |Pipeline |
 |:----------:|:---------------------------:|:--------------------:|:----:|:--------:|:----:|:--------:|:-------:|
 | (360, 640) | Berkeley-DD (Drivable Area) | Unet-ResNet34        | 25.9 |          | 91.7 |[unet-resnet34](https://drive.google.com/open?id=1fCEsEvzFMLxTxtw4EIdiQWonyXW8bOlf) |[jupyter](https://github.com/RuslanAgishev/robot_scene_understanding/blob/master/Drivable_Area/fastai_berkeley.ipynb)
-| (352, 640) | Berkeley-DD (Drivable Area) | Unet-EfficientNetB3  | 33.3 | 87.4     | 83.9 |[unet-efficientnet](https://github.com/RuslanAgishev/robot_scene_understanding/blob/master/Drivable_Area/trained_models/keras/unet-resnet34-drivable-berkeley.h5) |[jupyter](https://github.com/RuslanAgishev/robot_scene_understanding/blob/master/Drivable_Area/keras_berkeley_drivable_area.ipynb)
+| (352, 640) | Berkeley-DD (Drivable Area) | Unet-EfficientNetB3  | 33.3 | 87.4     | 83.9 |[unet-efficientnet](https://github.com/RuslanAgishev/robot_scene_understanding/blob/master/Drivable_Area/trained_models/keras/unet-efficientnet-drivable-berkeley.h5) |[jupyter](https://github.com/RuslanAgishev/robot_scene_understanding/blob/master/Drivable_Area/keras_berkeley_drivable_area.ipynb)
 
 Lanes segmentation video results are available on [Google-drive](https://drive.google.com/open?id=14a9jv1WcuCwi-7PoQotbsT6It7OyK-P9).
