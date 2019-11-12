@@ -24,3 +24,4 @@ gtsrb-german-traffic-sign
 
 # Deeplab pretrained models
 deeplab*
+Semantic_Segmentation/Tensorflow_Deeplab_ModelZoo/frames/

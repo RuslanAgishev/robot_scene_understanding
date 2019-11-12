@@ -1,0 +1,9 @@
+echo Downloading pretrained models...
+wget http://download.tensorflow.org/models/deeplabv3_xception_ade20k_train_2018_05_29.tar.gz
+tar xvzf deeplabv3_xception_ade20k_train_2018_05_29.tar.gz
+rm deeplabv3_xception_ade20k_train_2018_05_29.tar.gz
+
+wget http://download.tensorflow.org/models/deeplab_cityscapes_xception71_trainvalfine_2018_09_08.tar.gz
+tar xvzf deeplab_cityscapes_xception71_trainvalfine_2018_09_08.tar.gz
+mv trainval_fine deeplab_cityscapes_xception71_trainvalfine
+rm deeplab_cityscapes_xception71_trainvalfine_2018_09_08.tar.gz
