@@ -1,5 +1,5 @@
 import os
-os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
+os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 import time
 
 import cv2
@@ -43,19 +43,7 @@ model.compile('Adam', total_loss)
 # load best weights
 model.load_weights('best_model.h5')
 
-preprocess_input = sm.get_preprocessing(BACKBONE)
-def image_preprocessing(img_path, size=(192, 320)):
-    image = cv2.imread(img_path)
-    # convert color
-    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-    # apply preprocessing
-    image = cv2.resize(image, (size[1], size[0]), cv2.INTER_LINEAR)
-    image = preprocess_input(image)
-    img_processed = np.expand_dims(image, axis=0)
-    return img_processed
-
-import os
-PATH = '/home/ruslan/Desktop/example_images/'
+PATH = '/home/tegraboy/Desktop/example_images/'
 for img in os.listdir(PATH):
     input_image = image_preprocessing(os.path.join(PATH, img))
     # predict segmentation mask from the frame
