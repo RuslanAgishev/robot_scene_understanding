@@ -29,5 +29,5 @@ Semantic_Segmentation/Tensorflow_Deeplab_ModelZoo/frames/
 # Images from datasets
 Semantic_Segmentation/ENet/images/
 Semantic_Segmentation/UNet/data/
-Sidewalk_segmentation/frames/
+Sidewalk_segmentation/sidewalk_dataset/
 
