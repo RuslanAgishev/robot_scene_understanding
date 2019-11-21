@@ -150,14 +150,14 @@ class BerkeleyDD(torch.utils.data.Dataset):
 print("Loading files")
 batch_size = 4
 
-dataset_train = BerkeleyDD(train_img_path_list[:100], train_anno_json_path, get_transform(train=True))
+dataset_train = BerkeleyDD(train_img_path_list[:200], train_anno_json_path, get_transform(train=True))
 dataloader_train =  torch.utils.data.DataLoader(dataset_train,
                                   batch_size=batch_size,
                                   shuffle=True,
                                   num_workers=4,
                                   collate_fn=utils.collate_fn)
 
-dataset_val = BerkeleyDD(val_img_path_list[:10], val_anno_json_path, get_transform(train=False))
+dataset_val = BerkeleyDD(val_img_path_list, val_anno_json_path, get_transform(train=False))
 dataloader_val =  torch.utils.data.DataLoader(dataset_val,
                                   batch_size=1,
                                   shuffle=False,
