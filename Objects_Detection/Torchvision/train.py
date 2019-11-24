@@ -16,6 +16,7 @@ from PIL import Image
 import transforms as T
 from tqdm import tqdm
 from torch import nn
+import time
 
 # Helper functions
 from engine import train_one_epoch, evaluate
@@ -150,14 +151,14 @@ class BerkeleyDD(torch.utils.data.Dataset):
 print("Loading files")
 batch_size = 4
 
-dataset_train = BerkeleyDD(train_img_path_list[:100], train_anno_json_path, get_transform(train=True))
+dataset_train = BerkeleyDD(train_img_path_list, train_anno_json_path, get_transform(train=True))
 dataloader_train =  torch.utils.data.DataLoader(dataset_train,
                                   batch_size=batch_size,
                                   shuffle=True,
                                   num_workers=4,
                                   collate_fn=utils.collate_fn)
 
-dataset_val = BerkeleyDD(val_img_path_list[:10], val_anno_json_path, get_transform(train=False))
+dataset_val = BerkeleyDD(val_img_path_list, val_anno_json_path, get_transform(train=False))
 dataloader_val =  torch.utils.data.DataLoader(dataset_val,
                                   batch_size=1,
                                   shuffle=False,
@@ -207,7 +208,7 @@ for epoch in tqdm(range(num_epochs)):
     lr_scheduler.step()
     
     #if epoch==5 or epoch==10 or epoch==15 or epoch == 20 or epoch==24:
-    save_name = 'saved_models/bdd100k_' + str(epoch)+'.pth'
+    save_name = 'saved_models/bdd100k_'+str(epoch)+'_'+str( int(time.time()) )+'.pth'
     torch.save({
         'model': model.state_dict(),
         'optimizer': optimizer.state_dict(),
