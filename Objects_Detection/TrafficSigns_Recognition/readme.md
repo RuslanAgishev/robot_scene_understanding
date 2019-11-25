@@ -26,6 +26,6 @@ python3 predict.py --model output/trafficsignnet.model \
 or simply: ```./predict.sh```
 
 ### Results
-| Dataset | Backbone             | Precision | Recall | F1-score | FPS                     | Model    |
-|:-------:|:--------------------:|:---------:|:------:|:--------:|:-----------------------:|:--------:|
-| GTSRB   | [TrafficSignNet](https://github.com/RuslanAgishev/robot_scene_understanding/blob/master/Objects_Detection/TrafficSigns_Recognition/pyimagesearch/trafficsignnet.py)             | 0.91      | 0.88   | 0.88     | 77.9 (GeForce RTX 2080) |[weights](https://github.com/RuslanAgishev/robot_scene_understanding/blob/master/Objects_Detection/TrafficSigns_Recognition/output/trafficsignnet1572968296.model)
+| Dataset | Backbone             | Precision | Recall | F1-score | FPS                              | Model    |
+|:-------:|:--------------------:|:---------:|:------:|:--------:|:--------------------------------:|:--------:|
+| GTSRB   | [TrafficSignNet](https://github.com/RuslanAgishev/robot_scene_understanding/blob/master/Objects_Detection/TrafficSigns_Recognition/pyimagesearch/trafficsignnet.py)             | 0.91      | 0.88   | 0.88     | 77.9 (GeForce RTX 2080), 10.5 (Intel Core i5-6200U CPU) |[weights](https://github.com/RuslanAgishev/robot_scene_understanding/blob/master/Objects_Detection/TrafficSigns_Recognition/output/trafficsignnet1572968296.model)
