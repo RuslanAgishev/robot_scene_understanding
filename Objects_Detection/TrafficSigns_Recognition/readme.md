@@ -24,3 +24,8 @@ python3 predict.py --model output/trafficsignnet.model \
 	           --images gtsrb-german-traffic-sign/Test --examples examples
 ```
 or simply: ```./predict.sh```
+
+### Results
+| Dataset | Backbone             | Precision | Recall | F1-score | FPS                     | Model    |
+|:-------:|:--------------------:|:---------:|:------:|:--------:|:-----------------------:|:--------:|
+| GTSRB   | [TrafficSignNet](https://github.com/RuslanAgishev/robot_scene_understanding/blob/master/Objects_Detection/TrafficSigns_Recognition/pyimagesearch/trafficsignnet.py)             | 0.91      | 0.88   | 0.88     | 77.9 (GeForce RTX 2080) |[weights](https://github.com/RuslanAgishev/robot_scene_understanding/blob/master/Objects_Detection/TrafficSigns_Recognition/output/trafficsignnet1572968296.model)
