@@ -5,6 +5,7 @@ GTSRB (German Traffic Sign Recognition Benchmark) dataset can be downloaded from
 The project is built based on PyImageSearch [tutorial](https://www.pyimagesearch.com/2019/11/04/traffic-sign-classification-with-keras-and-deep-learning/).
 
 A pre-trained keras model is located [here](https://github.com/RuslanAgishev/robot_scene_understanding/tree/master/Objects_Detection/TrafficSigns_Recognition/output/trafficsignnet.model).
+The whole data preparation, training and testing pipeline is available [here](https://github.com/RuslanAgishev/robot_scene_understanding/blob/master/Objects_Detection/TrafficSigns_Recognition/keras_pipeline.ipynb).
 
 ### Training
 Note, that you need to download the GTSRB dataset and put it in the current folder
